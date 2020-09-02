@@ -1,0 +1,11 @@
+<div class='create-todo-container'>
+  <h1>Create Task</h1>
+  <div class='line'></div>
+  <div>
+    <input class="input is-large has-background-white-ter" type="text" placeholder="Task Name" #name>
+  </div>
+  <div>
+    <textarea class='textarea has-background-white-ter' #desc placeholder="Description"></textarea>
+  </div>
+  <button class="button has-background-success" (click)='addTodo(name.value, desc.value)'>Add Task</button>
+</div>

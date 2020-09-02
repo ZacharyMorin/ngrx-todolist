@@ -1,0 +1,29 @@
+.create-todo-container {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  padding: 15px;
+
+  div, button, h1 {
+    margin: 15px;
+  }
+
+  h1 {
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 0;
+  }
+
+  button {
+    color: #ffffff;
+    font-weight: 600;
+    width: 80px;
+    padding: 25px;
+  }
+
+  .line {
+    border-bottom: 2px solid #00000083;
+    width: 50%;
+    margin: 0 auto;
+  }
+}

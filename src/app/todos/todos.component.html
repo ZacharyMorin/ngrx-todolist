@@ -1,0 +1,17 @@
+<h1>Task List</h1>
+<div>
+  <div class='list'>
+    <div class='todo-wrapper' *ngFor='let todo of todos$ | async'>
+      <div class='todo has-background-white-ter'>
+        <h2 class='todo-name'>{{todo.name}}</h2>
+        <div class="columns">
+          <a class='button is-info view column' [routerLink]="['/todo', todo.id]">View</a>
+          <button class='button is-success complete column' (click)='deleteTodo(todo)'>Complete</button>
+        </div>
+      </div>
+    </div>
+    <!-- <ng-template #empty>
+    <strong>Relax, you have no tasks to complete...</strong>
+  </ng-template> -->
+  </div>
+</div>

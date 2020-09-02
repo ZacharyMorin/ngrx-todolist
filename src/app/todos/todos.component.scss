@@ -1,0 +1,32 @@
+.list {
+  height: 100%;
+  width: 500px;
+  padding: 0 1.5em;
+}
+
+h1, .todo-name {
+  font-size: 2em;
+  text-align: center;
+  margin: 10px;
+}
+
+.todo {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+  padding: 1em;
+  align-items: center;
+}
+
+.view, .complete {
+  width: 150px;
+  margin: 5px;
+}
+
+.columns {
+  padding: 10px;
+}
+
+.todo .column {
+  display: flex;
+}
