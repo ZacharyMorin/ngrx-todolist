@@ -4,7 +4,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from './../store/todo.model';
 import { Store } from '@ngrx/store';
-import * as toDoActions from './../store/actions';
 
 @Component({
   selector: 'app-todo',

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import * as ToDoActions from './../store/actions';
+import * as ToDoActions from '../store/app/actions';
 import * as fromRoot from '../store';
 
 @Component({
@@ -17,7 +17,7 @@ export class CreateTodoComponent implements OnInit {
     const genID = (): number => {
       return  Math.floor(Math.random() * 1000);
     }
-    this.store.dispatch(new ToDoActions.AddTodo({id:genID(), name:name, description: desc}));
+    this.store.dispatch(ToDoActions.ADD_TODO({id:genID(), name:name, description: desc}));
   }
 
   ngOnInit(): void {}

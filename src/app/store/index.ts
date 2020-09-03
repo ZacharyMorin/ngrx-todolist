@@ -1,4 +1,4 @@
-import * as fromTodos from './reducer';
+import * as fromTodos from '../store/app/reducer';
 
 import { ActionReducerMap } from '@ngrx/store';
 

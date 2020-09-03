@@ -8,8 +8,8 @@ import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import { Todo } from './../store/todo.model';
+import * as ToDoActions from '../store/app/actions';
 import * as fromRoot from '../store';
-import * as ToDoActions from './../store/actions';
 
 @Component({
   selector: 'app-todos',
@@ -28,6 +28,6 @@ export class TodosComponent implements OnInit {
   }
 
   deleteTodo(todo: Todo) {
-    this.store.dispatch(new ToDoActions.RemoveTodo(todo));
+    this.store.dispatch(ToDoActions.REMOVE_TODO(todo));
   }
 }
