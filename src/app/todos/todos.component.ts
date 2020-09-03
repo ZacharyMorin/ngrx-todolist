@@ -1,16 +1,15 @@
 // this component will render a list
 // of todos from the store.
 // each todo should have a button
-// that allows a user to remove the todo
+// that allows a user to remove the todo and view each individual todo
 
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import { Todo } from './../store/todo.model';
-import { AppState } from './../store/app.state';
+import * as fromRoot from '../store';
 import * as ToDoActions from './../store/actions';
-
 
 @Component({
   selector: 'app-todos',
@@ -20,21 +19,15 @@ import * as ToDoActions from './../store/actions';
 export class TodosComponent implements OnInit {
   todos$: Observable<Todo[]>;
 
-  //future Zach: figure out how to get count of Todos currently inside the store.
-  todoCount$: Observable<number>;
-
-  constructor(private store: Store<AppState>) {
-    //selecting todos which is defined in app module StoreModule.forRoot({}), .select returns an observable
-    this.todos$ = store.select('todos');
-  }
+  constructor(private store: Store<fromRoot.StateI>) {}
 
   ngOnInit(): void {
+    this.todos$ = this.store.pipe(
+      select( ({todosStore}) =>  todosStore.todos)
+    );
   }
 
   deleteTodo(todo: Todo) {
-    console.log('Delete: ' + todo.name )
     this.store.dispatch(new ToDoActions.RemoveTodo(todo));
   }
-
-
 }

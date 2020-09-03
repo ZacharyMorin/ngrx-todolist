@@ -4,7 +4,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from './../store/todo.model';
 import { Store } from '@ngrx/store';
-import { AppState } from './../store/app.state';
 import * as toDoActions from './../store/actions';
 
 @Component({
@@ -14,11 +13,7 @@ import * as toDoActions from './../store/actions';
 })
 export class TodoComponent implements OnInit {
 
-  todo = Todo;
-
-  constructor(private store: Store<AppState>) {
-
-  }
+  constructor() {}
 
   ngOnInit(): void {}
 

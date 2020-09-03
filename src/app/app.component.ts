@@ -7,7 +7,7 @@ import { Store, select } from '@ngrx/store';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  todos: any[];
+  // todos: any[];
 
   constructor(private store: Store<any>) {}
 
@@ -17,6 +17,6 @@ export class AppComponent implements OnInit {
      * select function gets desired state and returns an observable
      * we can subscribe to changes made to the state of todos
      */
-    this.store.select('todos').subscribe(state => (this.todos = state));
+    // this.store.select('todos').subscribe(state => (this.todos = state));
   }
 }

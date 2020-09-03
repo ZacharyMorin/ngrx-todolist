@@ -1,20 +1,21 @@
-import { AppState } from './app.state';
-import { createFeatureSelector, createSelector } from '@ngrx/store';
-
 import * as Actions from './actions';
 import { Todo } from './todo.model';
 
-export function reducer(state: Todo[], action: Actions.ToDoActions) {
+export interface StateI {
+  todos: Todo[]
+}
+
+const initialState: StateI = {
+  todos: []
+}
+
+export function reducer(state: StateI = initialState, action: Actions.ToDoActions) {
   switch(action.type) {
     case Actions.ToDoActionTypes.ADD_TODO:
-      if (state){
-        return [...state, action.payload]
-      } else {
-        return [action.payload]
-      }
+      return { ...state, todos:[...state.todos, action.payload] }
     case Actions.ToDoActionTypes.REMOVE_TODO:
-      let todo = action.payload
-      return state.filter((el) => el.id != todo.id)
+      const {id} = action.payload
+      return {...state, todos: state.todos.filter( t=> t.id !== id)}
     default:
       return state;
   }

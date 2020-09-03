@@ -7,12 +7,12 @@ import { StoreModule } from '@ngrx/store';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
-import { reducer } from './store/reducer';
 import { AppComponent } from './app.component';
 import { TodosComponent } from './todos/todos.component';
 import { TodoComponent } from './todo/todo.component';
 import { CreateTodoComponent } from './create-todo/create-todo.component';
 import { ContainerComponent } from './container/container.component';
+import { reducers } from './store';
 
 
 const routes: Routes = [
@@ -49,7 +49,7 @@ const routes: Routes = [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(routes),
-    StoreModule.forRoot({todos: reducer}),
+    StoreModule.forRoot(reducers),
     BrowserAnimationsModule,
     StoreDevtoolsModule.instrument({
       maxAge:25,
@@ -59,4 +59,4 @@ const routes: Routes = [
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
